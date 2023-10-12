@@ -1,0 +1,26 @@
+// Chapter 1 / Question 8 java code
+class Q8 {
+    // The tValue method actually counts from 0 to n in binary in order to achieve the t_value
+   static void tValue(int n , int i){               
+        //   it gives n for input and i for 
+        //   iteration and i should be initialized as 0 by user
+    
+    int count = (int)Math.pow(2, n);     // count = 2^n
+
+        if(i==count) return;     // count is our limit for output
+        else{
+            String max = Integer.toBinaryString(count-1);   // convert (2^n)-1 into binary string as max number we can get 
+            String bin = Integer.toBinaryString(i);    
+            while (bin.length() != max.length()) 
+            bin = "0" + bin;      // add zeros to bin inorder to have same lenght for each output
+
+            System.out.println(bin);
+            tValue(n, i+1);
+        }
+    }
+    // main method for testing the method
+    public static void main(String[] args) {
+        tValue(3, 0);
+    }
+}
+
